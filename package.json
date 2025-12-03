@@ -1,0 +1,96 @@
+{
+  "name": "@qwickapps/logging",
+  "version": "1.0.1",
+  "type": "module",
+  "description": "Centralized logging system for QwickApps with development debugging and production optimization",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./startup": {
+      "require": "./dist/startup.cjs",
+      "import": "./dist/startup.js"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "NODE_ENV=development rollup -c",
+    "build:prod": "NODE_ENV=production STRIP_LOGS=true rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist node_modules .rollup.cache",
+    "validate:clean-install": "./qa/clean-install/validate.sh",
+    "prepublishOnly": "npm run build && npm run validate:clean-install",
+    "deploy:dev": "npm run build:dev",
+    "deploy": "npm run build:prod"
+  },
+  "keywords": [
+    "logging",
+    "debug",
+    "console",
+    "development",
+    "production",
+    "qwickapps"
+  ],
+  "author": "QwickApps <legal@qwickapps.com>",
+  "license": "PolyForm-Shield-1.0.0",
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.1.0",
+    "babel-jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "pino": "^9.14.0",
+    "rollup": "^3.0.0",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raajkumars/qwickapps.git",
+    "directory": "packages/qwickapps-logging"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
