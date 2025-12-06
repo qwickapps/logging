@@ -66,8 +66,8 @@ if [ $BUILD_EXIT_CODE -eq 0 ]; then
     echo "╔════════════════════════════════════════════════════════════════╗"
     echo "║  ✅ VALIDATION PASSED                                          ║"
     echo "║                                                                ║"
-    echo "║  The package can be installed and used in a clean environment ║"
-    echo "║  with all TypeScript types resolving correctly.               ║"
+    echo "║  The package can be installed and used in a clean environment  ║"
+    echo "║  with all TypeScript types resolving correctly.                ║"
     echo "╚════════════════════════════════════════════════════════════════╝"
 
     # Clean up Docker image

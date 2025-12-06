@@ -1,6 +1,6 @@
 {
   "name": "@qwickapps/logging",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Centralized logging system for QwickApps with development debugging and production optimization",
   "main": "dist/index.cjs",
@@ -87,9 +87,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raajkumars/qwickapps.git",
-    "directory": "packages/qwickapps-logging"
+    "url": "https://github.com/qwickapps/logging.git"
   },
+  "homepage": "https://github.com/qwickapps/logging#readme",
   "publishConfig": {
     "access": "public"
   }
