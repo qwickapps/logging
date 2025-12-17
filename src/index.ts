@@ -371,7 +371,14 @@ export class Logger {
       const hasTransports = (config.transports && config.transports.length > 0) || this.transports.length > 0;
       this.enabled = !stripLogs && config.enabled && (!isProd || pinoAvailable || hasTransports);
     }
-    if (config.transports !== undefined) this.transports = config.transports;
+    if (config.transports !== undefined) {
+      this.transports = config.transports;
+      // Auto-enable in production when transports are provided
+      // This ensures FileLogTransport works even without pino
+      if (this.transports.length > 0 && !this.enabled && !stripLogs) {
+        this.enabled = true;
+      }
+    }
 
     // Propagate configuration to all children
     this.children.forEach(child => {
