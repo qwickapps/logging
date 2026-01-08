@@ -1,7 +1,6 @@
 {
   "name": "@qwickapps/logging",
   "version": "1.0.2",
-  "type": "module",
   "description": "Centralized logging system for QwickApps with development debugging and production optimization",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

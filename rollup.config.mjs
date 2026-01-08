@@ -10,12 +10,25 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 // Shared plugins configuration
 const createPlugins = () => [
-  // Replace environment variables
+  // Replace environment variables for browser-safe build
   replace({
     preventAssignment: true,
+    delimiters: ['', ''],
     values: {
+      'process.env?.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env?.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false'),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'process.env.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false')
+      'process.env.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false'),
+      'process.env.LOG_FILE': JSON.stringify('false'),
+      'process.env.LOG_FILE_PATH': JSON.stringify(''),
+      'process.env.LOGFIRE_TOKEN': JSON.stringify(''),
+      'process.env.LOG_REDACT': JSON.stringify(''),
+      'process.env.LOG_LEVEL': JSON.stringify('debug'),
+      'process.env.HOSTNAME': JSON.stringify('browser'),
+      'process.env.LOGFIRE_PROJECT': JSON.stringify(''),
+      'process.env.npm_package_name': JSON.stringify('qwickapps'),
+      'process.pid': '0',
+      "require('os').hostname()": JSON.stringify('browser')
     }
   }),
   babel({
@@ -76,12 +89,25 @@ export default [
     ],
     external: ['fs', 'path'], // Keep fs/path as external for Node.js
     plugins: [
-    // Replace environment variables
+    // Replace environment variables for browser-safe build
     replace({
       preventAssignment: true,
+      delimiters: ['', ''],
       values: {
+        'process.env?.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'process.env?.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false'),
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-        'process.env.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false')
+        'process.env.STRIP_LOGS': JSON.stringify(stripLogs ? 'true' : 'false'),
+        'process.env.LOG_FILE': JSON.stringify('false'),
+        'process.env.LOG_FILE_PATH': JSON.stringify(''),
+        'process.env.LOGFIRE_TOKEN': JSON.stringify(''),
+        'process.env.LOG_REDACT': JSON.stringify(''),
+        'process.env.LOG_LEVEL': JSON.stringify('debug'),
+        'process.env.HOSTNAME': JSON.stringify('browser'),
+        'process.env.LOGFIRE_PROJECT': JSON.stringify(''),
+        'process.env.npm_package_name': JSON.stringify('qwickapps'),
+        'process.pid': '0',
+        "require('os').hostname()": JSON.stringify('browser')
       }
     }),
     babel({
