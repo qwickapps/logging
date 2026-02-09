@@ -1,5 +1,13 @@
 # @qwickapps/logging
 
+## What's New in v1.0.3
+
+- **Critical Production Fix**: Moved pino dependency from devDependencies to dependencies, fixing production deployment failures
+- **Improved Reliability**: Ensures Pino logger is available in all deployment environments
+- **Zero Breaking Changes**: Drop-in replacement for v1.0.2
+
+See [CHANGELOG.md](./CHANGELOG.md) for full details.
+
 ## Overview
 
 The QwickApps React Framework includes a sophisticated logging system designed for development debugging while ensuring zero performance impact and complete removal in production builds. The system provides namespaced loggers, multiple log levels, and flexible build configurations.

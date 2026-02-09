@@ -1,6 +1,6 @@
 {
   "name": "@qwickapps/logging",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Centralized logging system for QwickApps with development debugging and production optimization",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -57,12 +57,12 @@
     "babel-jest": "^29.0.0",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^29.0.0",
-    "pino": "^9.14.0",
     "rollup": "^3.0.0",
     "ts-jest": "^29.4.1",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "pino": "^9.14.0",
     "tslib": "^2.6.2"
   },
   "jest": {
